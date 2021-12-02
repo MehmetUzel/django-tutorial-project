@@ -1,0 +1,11 @@
+python manage.py shell
+
+from ecommsite.models import Item, ToDoList
+t= ToDoList(name="Mehmet\'s list")
+t.save()
+ToDoList.objects.all()
+ToDoList.objects.get(id=1)
+ToDoList.objects.get(name="Mehmet's list")
+t.item_set.create(text="Write some code!", complete = False)
+t.item_set.all()
+t.item_set.get(id=1)
