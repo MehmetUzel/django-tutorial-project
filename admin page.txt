@@ -1,0 +1,14 @@
+from ecommsite.models import Item, ToDoList
+
+t = ToDoList.objects
+t.all()
+t.filter(name__startswith="Mehm")
+t.filter(id=2)
+del_object = t.get(id=1)
+del_object.delete()
+
+t1= ToDoList(name="First list")
+t1.save()
+
+t2= ToDoList(name="Second list")
+t2.save()
