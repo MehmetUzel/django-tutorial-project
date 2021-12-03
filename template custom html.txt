@@ -1,0 +1,7 @@
+from ecommsite.models import ToDoList
+
+ls = ToDoList.objects.get(id=2)
+ls.item_set.all()
+ls.item_set.create(text="first item", complete = False)
+ls.item_set.create(text="Second item", complete = False)
+ls.item_set.create(text="Third item", complete = False)
