@@ -1,15 +1,9 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import ToDoList,Item
-# Create your views here.
+from .forms import CreateNewList
 
-'''
-def index(response, name):
-    ls=ToDoList.objects.get(name=name)
-    #item = ls.item_set.get(id=1)
-    #return HttpResponse("<h1> %s </h1><br><p>%s</p>" %(ls.name, item.text))
-    return HttpResponse("<h1> %s </h1><br><p></p>" %(ls.name))
-'''
 def index(response, id):
     #ls=ToDoList.objects.get(name=name)
     ls = ToDoList.objects.get(id=id)
@@ -18,3 +12,19 @@ def index(response, id):
 
 def home(response):
     return render(response, "ecommsite/home.html", {})
+
+def create(response):
+    if response.method== "POST":
+        form = CreateNewList(response.POST)
+
+        if form.is_valid():
+            n = form.cleaned_data["name"]
+            t = ToDoList(name = n)
+            t.save()
+        print(t.id)
+        return HttpResponseRedirect("/%i" %t.id)
+
+    else:
+        form = CreateNewList()
+    return render(response, "ecommsite/create.html", {"form":form})
+
