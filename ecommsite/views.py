@@ -32,6 +32,7 @@ def home(response):
     return render(response, "ecommsite/home.html", {})
 
 def create(response):
+
     if response.method== "POST":
         form = CreateNewList(response.POST)
 

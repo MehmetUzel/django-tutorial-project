@@ -54,9 +54,15 @@
                 <div class="col-8">
                     <h1 class="m2-2">Mehmets Site</h1>
                     <hr class="mt-0 mb-4">
-                    {% block content%}
+                    <!-- {% if user.is_authenticated %}
+                        {% block content%}
 
-                    {% endblock %}
+                        {% endblock %}
+                    {%else%}
+                        <p>Login<a href="/login">Here</a></p>
+                    {% endif %} -->
+                        {% block content%}
+                        {% endblock %}
                 </div>
             </div>
         </div>
