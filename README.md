@@ -1,2 +1,3 @@
-# django ecommerce
- django ecommerce project for a small bussiness
+# django tutorial project
+ django  project for tutorial
+ Thanks to Tech With Tim youtube channel
